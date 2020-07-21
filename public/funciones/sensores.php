@@ -8,4 +8,9 @@ function funciongetSensoreData($request){
     $objSensor= new Sensores();
     return $objSensor->getSensorData($request);
 }
+function funcioninsertatemperatura($request){
+    $objSensor= new Sensores();
+    return $objSensor->insertatemperatura($request);
+}
+
 

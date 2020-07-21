@@ -20,10 +20,14 @@ $app->get('/[{name}]', function (Request $request, Response $response, array $ar
 $app->group('/api', function () use ($app) {
    
     //REGISTROUSUARIOS
-    $app->post('/rutacalculadora','funcionCalculadora');
-
-    $app->post('/sensores','funcionsensores');
+    //$app->post('/rutacalculadora','funcionCalculadora');
+    //$app->post('/sensores','funcionsensores');
     $app->get('/sensores','funciongetSensoreData');
+    $app->post('/sensores','funcioninsertatemperatura');
+    $app->post('/consumoenergetico','funcioninsertaconsumoenergetico');
+    $app->post('/fugasdegas','funcioninsertafugasdegas');
+    
+
     
 
 });

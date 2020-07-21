@@ -49,4 +49,23 @@ class Sensores
 
     return json_encode($response);
   }
+  public function insertatemperatura($request)
+  {
+    $req = json_decode($request->getbody());
+
+    $sql = "INSERT INTO Temperatura (Fecha,Hora,Temperatura) values (:Fecha,:Hora,:Temperatura)";
+    $response=new stdClass();
+      try {
+        $statement = $this->con->prepare($sql);
+        $statement->bindparam("Fecha", $req->Fecha);
+        $statement->bindparam("Hora", $req->Hora);      
+        $statement->bindparam("Temperatura", $req->Temperatura);      
+        $statement->execute();        
+       // $response->result=$statement->fetchall(PDO::FETCH_OBJ);
+      } catch (Exception $e) {
+        $response->mensaje = $e->getMessage();
+      }
+
+    return json_encode($response);
+  }
 }
