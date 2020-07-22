@@ -44,6 +44,11 @@ include 'funciones/calculadora.php';
 include 'funciones/sensores.php';
 include 'funciones/consumoenergetico.php';
 include 'funciones/fugasdegas.php';
+include 'funciones/nivelesdeagua.php';
+include 'funciones/luz.php';
+include 'funciones/alarmas.php';
+
+
 
 // Run app
 $app->run();

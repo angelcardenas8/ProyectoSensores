@@ -1,5 +1,5 @@
 <?php
-class Consumo
+class Luz
 {
   private $con;
 
@@ -14,18 +14,17 @@ class Consumo
     $this->con = null;
   }
   
-  public function insertaconsumoenergetico($request)
+  public function insertaluz($request)
   {
     $req = json_decode($request->getbody());
 
-    $sql = "INSERT INTO consumoenergetico (fecha,hora,consumo,area) values (:fecha,:hora,:consumo,:area)";
+    $sql = "INSERT INTO luz (hora,fecha,porcentaje) values (:hora,:fecha,:porcentaje)";
     $response=new stdClass();
       try {
         $statement = $this->con->prepare($sql);
-        $statement->bindparam("fecha", $req->fecha);
-        $statement->bindparam("hora", $req->hora);      
-        $statement->bindparam("consumo", $req->consumo);    
-        $statement->bindparam("area", $req->area);   
+        $statement->bindparam("hora", $req->hora);
+        $statement->bindparam("fecha", $req->fecha);      
+        $statement->bindparam("porcentaje", $req->porcentaje);   
         $statement->execute();        
        // $response->result=$statement->fetchall(PDO::FETCH_OBJ);
       } catch (Exception $e) {

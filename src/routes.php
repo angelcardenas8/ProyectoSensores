@@ -26,6 +26,10 @@ $app->group('/api', function () use ($app) {
     $app->post('/sensores','funcioninsertatemperatura');
     $app->post('/consumoenergetico','funcioninsertaconsumoenergetico');
     $app->post('/fugasdegas','funcioninsertafugasdegas');
+    $app->post('/nivelesdeagua','funcioninsertanivelesdeagua');
+    $app->post('/luz','funcioninsertaluz');
+    $app->post('/alarmas','funcioninsertaalarmas');
+
     
 
     
