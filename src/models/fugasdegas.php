@@ -18,14 +18,13 @@ class Fugas
   {
     $req = json_decode($request->getbody());
 
-    $sql = "INSERT INTO fugasdegas (fecha,hora,area,estado) values (:fecha,:hora,:area,:estado)";
+    $sql = "INSERT INTO fugas (fechayhora,area,niveldegas) values (:fechayhora,:area,:niveldegas)";
     $response=new stdClass();
       try {
         $statement = $this->con->prepare($sql);
-        $statement->bindparam("fecha", $req->fecha);
-        $statement->bindparam("hora", $req->hora);      
+        $statement->bindparam("fechayhora", $req->fechayhora);      
         $statement->bindparam("area", $req->area);   
-        $statement->bindparam("estado", $req->estado);   
+        $statement->bindparam("niveldegas", $req->niveldegas);   
         $statement->execute();        
        // $response->result=$statement->fetchall(PDO::FETCH_OBJ);
       } catch (Exception $e) {
