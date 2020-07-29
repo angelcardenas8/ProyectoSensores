@@ -4,3 +4,7 @@ function funcioninsertafugasdegas($request){
     $objSensor= new Fugas();
     return $objSensor->insertafugasdegas($request);
 }
+function funciongetfugas($request){
+    $objSensor= new Fugas();
+    return $objSensor->getfugas($request);
+}

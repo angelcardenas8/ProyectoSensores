@@ -32,20 +32,21 @@ class Sensores
 
     return json_encode($response);
   }
-  public function getSensorData($request)
+  public function getfugasdegas($request)
   {
     $req = json_decode($request->getbody());
 
-    $sql = "SELECT * FROM ejemplo WHERE id=:id";
+    $sql = "SELECT * FROM fugas ORDER BY idfuga desc limit 1";
     $response=new stdClass();
       try {
         $statement = $this->con->prepare($sql);
-        $statement->bindparam("id", $req->id);      
+        $statement->bindparam("niveldegas", $req->id);      
         $statement->execute();        
-        $response->result=$statement->fetchall(PDO::FETCH_OBJ);
+        $response=$statement->fetchall(PDO::FETCH_OBJ)[0];
       } catch (Exception $e) {
         $response->mensaje = $e->getMessage();
       }
+
 
     return json_encode($response);
   }

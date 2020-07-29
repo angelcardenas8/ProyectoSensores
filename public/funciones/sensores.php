@@ -4,9 +4,9 @@ function funcionsensores($request){
     $objSensor= new Sensores();
     return $objSensor->insertarSensor($request);
 }
-function funciongetSensoreData($request){
+function funciongetfugasdegas($request){
     $objSensor= new Sensores();
-    return $objSensor->getSensorData($request);
+    return $objSensor->getfugasdegas($request);
 }
 function funcioninsertatemperatura($request){
     $objSensor= new Sensores();
